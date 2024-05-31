@@ -37,10 +37,23 @@ class Testbowling_score(unittest.TestCase):
         self.assertEqual(frames, 1)
         self.assertEqual(total, 8)
 
+    def test_for_strike_with_bonus(self):
+        rolls = [10, 4, 3]
+        total, ball, frames = bowling_score(rolls)
+        print("total for strike with bonus", total)
 
-    # Spare bonus
-    # Strike bonus
-    
+        self.assertEqual(ball, 0)
+        self.assertEqual(frames, 2)
+        self.assertEqual(total, 24)
+
+    def test_for_spare_with_bonus(self):
+        rolls = [5, 5, 4, 2]
+        total, ball, frames = bowling_score(rolls)
+        print("total for spare with bonus", total)
+
+        self.assertEqual(ball, 0)
+        self.assertEqual(frames, 2)
+        self.assertEqual(total, 20)
 
 if __name__ == "__main__":
     unittest.main()
