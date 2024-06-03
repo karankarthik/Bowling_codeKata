@@ -3,7 +3,7 @@ from bowling import bowling_score
 
 class Testbowling_score(unittest.TestCase):
     def test_bowling_score(self):
-        pins, ball, frames = bowling_score({})
+        pins, ball, frames = bowling_score([])
         print (pins, ball, frames)
 
         self.assertEqual(pins, 0)
@@ -55,6 +55,25 @@ class Testbowling_score(unittest.TestCase):
         self.assertEqual(frames, 2)
         self.assertEqual(total, 20)
 
+    def test_for_full_game(self):
+        rolls = [5, 5, 4, 2, 10, 4, 6, 3, 4, 10, 2, 8, 2, 1, 4, 5, 2, 3]
+        total, ball, frames = bowling_score(rolls)
+        print("total for full gamee", total)
+
+        self.assertEqual(ball, 0)
+        self.assertEqual(frames, 10)
+        self.assertEqual(total, 109)
+
+    def test_for_full_game_with_strike_at_end(self):
+        rolls = [5, 5, 4, 2, 10, 4, 6, 3, 4, 10, 2, 8, 2, 1, 4, 5, 10, 10, 3]
+        total, ball, frames = bowling_score(rolls)
+        print("total for full game with strike at the end", total)
+
+        self.assertEqual(ball, 0)
+        self.assertEqual(frames, 10)
+        self.assertEqual(total, 127)
+
 if __name__ == "__main__":
     unittest.main()
+
 
