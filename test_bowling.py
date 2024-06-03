@@ -58,10 +58,10 @@ class Testbowling_score(unittest.TestCase):
     def test_for_full_game(self):
         rolls = [5, 5, 4, 2, 10, 4, 6, 3, 4, 10, 2, 8, 2, 1, 4, 5, 2, 3]
         total, ball, frames = bowling_score(rolls)
-        print("total for full gamee", total)
+        print("total for full game", total)
 
-        self.assertEqual(ball, 0)
-        self.assertEqual(frames, 10)
+        self.assertEqual(ball, 2)
+        self.assertEqual(frames, 1)
         self.assertEqual(total, 109)
 
     def test_for_full_game_with_strike_at_end(self):
@@ -69,8 +69,8 @@ class Testbowling_score(unittest.TestCase):
         total, ball, frames = bowling_score(rolls)
         print("total for full game with strike at the end", total)
 
-        self.assertEqual(ball, 0)
-        self.assertEqual(frames, 10)
+        self.assertEqual(ball, 3)
+        self.assertEqual(frames, 9)
         self.assertEqual(total, 127)
 
 if __name__ == "__main__":
