@@ -61,7 +61,7 @@ class Testbowling_score(unittest.TestCase):
         print("total for full game", total)
 
         self.assertEqual(ball, 2)
-        self.assertEqual(frames, 1)
+        self.assertEqual(frames, 9)
         self.assertEqual(total, 109)
 
     def test_for_full_game_with_strike_at_end(self):
